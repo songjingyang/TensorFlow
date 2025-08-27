@@ -9,7 +9,14 @@
     "lint": "eslint",
     "import-data": "node scripts/import-data.js",
     "deploy": "node deploy.js",
-    "deploy:vercel": "vercel --prod"
+    "deploy:vercel": "vercel --prod",
+    "crawl-docs": "node scripts/auto-crawl-docs.js",
+    "crawl-test": "node scripts/auto-crawl-docs.js --test",
+    "crawl-react": "node scripts/auto-crawl-docs.js --tech react --save",
+    "crawl-all": "node scripts/auto-crawl-docs.js --save",
+    "crawl-safe": "node scripts/auto-crawl-docs.js --safe --save",
+    "crawl-fast": "node scripts/auto-crawl-docs.js --fast --save",
+    "crawl-robust": "node scripts/auto-crawl-docs.js --safe --max-retries 5 --save"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -17,12 +24,18 @@
     "@tensorflow-models/universal-sentence-encoder": "^1.3.3",
     "@tensorflow/tfjs": "^4.22.0",
     "@tensorflow/tfjs-node": "^4.22.0",
+    "axios": "^1.11.0",
+    "cheerio": "^1.1.2",
     "dexie": "^4.2.0",
     "dotenv": "^17.2.1",
     "fuse.js": "^7.1.0",
     "next": "15.5.2",
+    "node-html-parser": "^7.0.1",
+    "openai": "^5.16.0",
+    "puppeteer": "^24.17.0",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "similarity": "^1.2.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

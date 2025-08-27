@@ -1,0 +1,139 @@
+{
+  "timestamp": "2025-08-27T10:26:29.811Z",
+  "summary": {
+    "totalErrors": 5,
+    "crawled": 55,
+    "processed": 55,
+    "imported": 55
+  },
+  "errorsByStage": {
+    "crawl": [
+      {
+        "tech": "css",
+        "name": "ProtocolError",
+        "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+        "index": 0,
+        "batch": 1,
+        "stage": "crawl"
+      },
+      {
+        "tech": "css",
+        "name": "ProtocolError",
+        "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+        "index": 1,
+        "batch": 2,
+        "stage": "crawl"
+      },
+      {
+        "tech": "css",
+        "name": "ProtocolError",
+        "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+        "index": 2,
+        "batch": 3,
+        "stage": "crawl"
+      },
+      {
+        "tech": "css",
+        "name": "ProtocolError",
+        "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+        "index": 3,
+        "batch": 4,
+        "stage": "crawl"
+      },
+      {
+        "tech": "css",
+        "name": "ProtocolError",
+        "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+        "index": 4,
+        "batch": 5,
+        "stage": "crawl"
+      }
+    ]
+  },
+  "errorsByTech": {
+    "css": [
+      {
+        "tech": "css",
+        "name": "ProtocolError",
+        "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+        "index": 0,
+        "batch": 1,
+        "stage": "crawl"
+      },
+      {
+        "tech": "css",
+        "name": "ProtocolError",
+        "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+        "index": 1,
+        "batch": 2,
+        "stage": "crawl"
+      },
+      {
+        "tech": "css",
+        "name": "ProtocolError",
+        "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+        "index": 2,
+        "batch": 3,
+        "stage": "crawl"
+      },
+      {
+        "tech": "css",
+        "name": "ProtocolError",
+        "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+        "index": 3,
+        "batch": 4,
+        "stage": "crawl"
+      },
+      {
+        "tech": "css",
+        "name": "ProtocolError",
+        "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+        "index": 4,
+        "batch": 5,
+        "stage": "crawl"
+      }
+    ]
+  },
+  "errors": [
+    {
+      "tech": "css",
+      "name": "ProtocolError",
+      "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+      "index": 0,
+      "batch": 1,
+      "stage": "crawl"
+    },
+    {
+      "tech": "css",
+      "name": "ProtocolError",
+      "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+      "index": 1,
+      "batch": 2,
+      "stage": "crawl"
+    },
+    {
+      "tech": "css",
+      "name": "ProtocolError",
+      "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+      "index": 2,
+      "batch": 3,
+      "stage": "crawl"
+    },
+    {
+      "tech": "css",
+      "name": "ProtocolError",
+      "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+      "index": 3,
+      "batch": 4,
+      "stage": "crawl"
+    },
+    {
+      "tech": "css",
+      "name": "ProtocolError",
+      "message": "Target.createTarget timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+      "index": 4,
+      "batch": 5,
+      "stage": "crawl"
+    }
+  ]
+}
