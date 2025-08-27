@@ -1,17 +1,24 @@
 {
+  "version": 2,
+  "name": "frontend-docs-search",
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
   "env": {
-    "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key"
+    "NEXT_PUBLIC_SUPABASE_URL": "https://tvxoqnmbexwhgpecusew.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR2eG9xbm1iZXh3aGdwZWN1c2V3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYyODMwMDMsImV4cCI6MjA3MTg1OTAwM30.VyCrZfbwtKAkkv2HYGdq2oVfA67aI-MzCmaHk32U_YY"
   },
   "build": {
     "env": {
-      "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
-      "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key"
+      "NEXT_PUBLIC_SUPABASE_URL": "https://tvxoqnmbexwhgpecusew.supabase.co",
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR2eG9xbm1iZXh3aGdwZWN1c2V3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYyODMwMDMsImV4cCI6MjA3MTg1OTAwM30.VyCrZfbwtKAkkv2HYGdq2oVfA67aI-MzCmaHk32U_YY"
+    }
+  },
+  "functions": {
+    "app/**": {
+      "maxDuration": 30
     }
   }
 }
