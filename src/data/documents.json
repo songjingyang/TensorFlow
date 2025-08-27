@@ -1,0 +1,92 @@
+[
+  {
+    "id": "react-hooks-useEffect",
+    "title": "useEffect Hook - React",
+    "category": "React",
+    "content": "useEffect Hook 让你在函数组件中执行副作用操作。它相当于 componentDidMount、componentDidUpdate 和 componentWillUnmount 这三个生命周期函数的组合。useEffect 接收两个参数：一个函数和一个依赖数组。",
+    "url": "https://react.dev/reference/react/useEffect",
+    "tags": ["hooks", "effect", "lifecycle", "react"],
+    "summary": "useEffect Hook 用于在函数组件中处理副作用"
+  },
+  {
+    "id": "vue-reactivity-system",
+    "title": "Vue 响应式系统",
+    "category": "Vue",
+    "content": "Vue 的响应式系统是其核心特性之一。当数据发生变化时，视图会自动更新。Vue 3 使用 Proxy 来实现响应式，提供了更好的性能和更完整的语言特性支持。ref() 和 reactive() 是创建响应式数据的主要方法。",
+    "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+    "tags": ["reactivity", "proxy", "ref", "reactive", "vue3"],
+    "summary": "Vue 响应式系统自动追踪数据变化并更新视图"
+  },
+  {
+    "id": "angular-components",
+    "title": "Angular 组件",
+    "category": "Angular",
+    "content": "组件是 Angular 应用的基本构建块。每个组件包含一个 TypeScript 类、一个 HTML 模板和一个 CSS 样式表。组件通过 @Component 装饰器来定义，可以接收输入属性、发出事件、使用生命周期钩子等。",
+    "url": "https://angular.io/guide/component-overview",
+    "tags": ["components", "decorator", "template", "angular"],
+    "summary": "Angular 组件是应用的基本构建单元"
+  },
+  {
+    "id": "javascript-promises",
+    "title": "JavaScript Promises",
+    "category": "JavaScript",
+    "content": "Promise 是 JavaScript 中处理异步操作的对象。Promise 有三种状态：pending（等待中）、fulfilled（已完成）、rejected（已拒绝）。Promise 提供了 then()、catch() 和 finally() 方法来处理异步结果。",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "tags": ["promise", "asynchronous", "then", "catch"],
+    "summary": "Promise 对象用于处理异步操作的最终完成或失败"
+  },
+  {
+    "id": "css-flexbox",
+    "title": "CSS Flexbox 布局",
+    "category": "CSS",
+    "content": "Flexbox 是一种一维布局方法，用于在容器中排列项目。通过设置 display: flex，容器成为 flex 容器，其直接子元素成为 flex 项目。Flexbox 提供了强大的对齐、分布和排序能力。",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout",
+    "tags": ["flexbox", "layout", "alignment", "css"],
+    "summary": "Flexbox 提供灵活的一维布局解决方案"
+  },
+  {
+    "id": "typescript-generics",
+    "title": "TypeScript 泛型",
+    "category": "TypeScript",
+    "content": "泛型是 TypeScript 中一个强大的特性，允许你创建可重用的组件。泛型可以用于函数、接口、类和类型别名。通过使用类型参数，泛型让你能够创建适用于多种类型的组件，同时保持类型安全。",
+    "url": "https://www.typescriptlang.org/docs/handbook/2/generics.html",
+    "tags": ["generics", "types", "reusable", "typescript"],
+    "summary": "TypeScript 泛型提供类型安全的可重用组件"
+  },
+  {
+    "id": "html-forms",
+    "title": "HTML 表单",
+    "category": "HTML",
+    "content": "HTML 表单用于收集用户输入。表单包含各种输入元素，如文本字段、复选框、单选按钮、下拉列表等。表单数据可以通过 GET 或 POST 方法提交到服务器。HTML5 引入了新的输入类型和验证属性。",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form",
+    "tags": ["forms", "input", "validation", "html5"],
+    "summary": "HTML 表单用于收集和提交用户输入数据"
+  },
+  {
+    "id": "nodejs-modules",
+    "title": "Node.js 模块系统",
+    "category": "Node.js",
+    "content": "Node.js 使用 CommonJS 模块系统，通过 require() 函数加载模块，通过 module.exports 或 exports 导出模块。Node.js 也支持 ES6 模块语法。模块可以是文件、目录或 npm 包。",
+    "url": "https://nodejs.org/api/modules.html",
+    "tags": ["modules", "require", "exports", "commonjs"],
+    "summary": "Node.js 模块系统用于组织和重用代码"
+  },
+  {
+    "id": "webpack-loaders",
+    "title": "Webpack Loaders",
+    "category": "Webpack",
+    "content": "Webpack loaders 用于转换文件。Loaders 可以将文件从一种语言转换为另一种语言，例如将 TypeScript 转换为 JavaScript，将 Sass 转换为 CSS。常用的 loaders 包括 babel-loader、css-loader、file-loader 等。",
+    "url": "https://webpack.js.org/concepts/loaders/",
+    "tags": ["loaders", "transform", "babel", "css"],
+    "summary": "Webpack loaders 用于转换和处理不同类型的文件"
+  },
+  {
+    "id": "vite-plugins",
+    "title": "Vite 插件系统",
+    "category": "Vite",
+    "content": "Vite 的插件系统基于 Rollup 插件 API，并提供了额外的 Vite 特定选项。插件可以扩展 Vite 的功能，如添加新的文件类型支持、优化构建过程等。Vite 有丰富的官方和社区插件生态。",
+    "url": "https://vitejs.dev/guide/using-plugins.html",
+    "tags": ["plugins", "rollup", "extend", "ecosystem"],
+    "summary": "Vite 插件系统提供可扩展的构建功能"
+  }
+]

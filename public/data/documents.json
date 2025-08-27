@@ -1,0 +1,200 @@
+[
+  {
+    "id": "react-hooks-useEffect",
+    "title": "useEffect Hook - React",
+    "category": "React",
+    "content": "useEffect Hook 让你在函数组件中执行副作用操作。它相当于 componentDidMount、componentDidUpdate 和 componentWillUnmount 这三个生命周期函数的组合。useEffect 接收两个参数：一个函数和一个依赖数组。你可以通过返回一个清理函数来处理组件卸载时的清理工作。",
+    "url": "https://react.dev/reference/react/useEffect",
+    "tags": ["hooks", "effect", "lifecycle", "react", "cleanup"],
+    "summary": "useEffect Hook 用于在函数组件中处理副作用"
+  },
+  {
+    "id": "react-context-api",
+    "title": "Context API - React",
+    "category": "React",
+    "content": "React Context 提供了一种在组件树中传递数据的方法，无需手动在每一层传递 props。Context 主要用于共享全局数据，如主题、用户信息等。使用 createContext 创建 Context，Provider 提供值，useContext Hook 消费值。",
+    "url": "https://react.dev/reference/react/createContext",
+    "tags": ["context", "global-state", "provider", "consumer", "react"],
+    "summary": "Context API 用于在组件树中共享全局数据"
+  },
+  {
+    "id": "react-memo-optimization",
+    "title": "React.memo 性能优化",
+    "category": "React",
+    "content": "React.memo 是一个高阶组件，用于优化函数组件的性能。它会对组件的 props 进行浅比较，只有当 props 发生变化时才重新渲染组件。可以传入自定义比较函数来控制何时重新渲染。",
+    "url": "https://react.dev/reference/react/memo",
+    "tags": ["memo", "performance", "optimization", "react", "memoization"],
+    "summary": "React.memo 通过 props 比较来优化组件渲染性能"
+  },
+  {
+    "id": "vue-reactivity-system",
+    "title": "Vue 响应式系统",
+    "category": "Vue",
+    "content": "Vue 的响应式系统是其核心特性之一。当数据发生变化时，视图会自动更新。Vue 3 使用 Proxy 来实现响应式，提供了更好的性能和更完整的语言特性支持。ref() 和 reactive() 是创建响应式数据的主要方法。",
+    "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+    "tags": ["reactivity", "proxy", "ref", "reactive", "vue3"],
+    "summary": "Vue 响应式系统自动追踪数据变化并更新视图"
+  },
+  {
+    "id": "vue-computed-properties",
+    "title": "Vue 计算属性",
+    "category": "Vue",
+    "content": "计算属性是基于响应式依赖进行缓存的。只有在相关响应式依赖发生改变时才会重新求值。computed() 函数用于创建计算属性，它返回一个只读的响应式引用。计算属性相比方法的优势是具有缓存特性。",
+    "url": "https://vuejs.org/guide/essentials/computed.html",
+    "tags": ["computed", "cache", "reactive", "vue3", "performance"],
+    "summary": "Vue 计算属性提供基于依赖的缓存计算"
+  },
+  {
+    "id": "vue-watchers",
+    "title": "Vue 侦听器",
+    "category": "Vue",
+    "content": "侦听器用于观察和响应数据的变化。watch() 函数可以侦听一个或多个响应式数据源，并在数据变化时执行回调函数。watchEffect() 会立即执行传入的函数，同时响应式地追踪其依赖。",
+    "url": "https://vuejs.org/guide/essentials/watchers.html",
+    "tags": ["watch", "watchEffect", "reactive", "vue3", "observer"],
+    "summary": "Vue 侦听器用于响应数据变化并执行副作用"
+  },
+  {
+    "id": "vue-router-navigation",
+    "title": "Vue Router 路由导航",
+    "category": "Vue",
+    "content": "Vue Router 是 Vue.js 的官方路由管理器。它支持嵌套路由、动态路由、路由守卫、懒加载等功能。使用 router-link 组件进行声明式导航，使用 router.push() 进行编程式导航。",
+    "url": "https://router.vuejs.org/guide/",
+    "tags": ["router", "navigation", "spa", "vue", "routing"],
+    "summary": "Vue Router 提供单页应用的路由管理功能"
+  },
+  {
+    "id": "angular-components",
+    "title": "Angular 组件",
+    "category": "Angular",
+    "content": "组件是 Angular 应用的基本构建块。每个组件包含一个 TypeScript 类、一个 HTML 模板和一个 CSS 样式表。组件通过 @Component 装饰器来定义，可以接收输入属性、发出事件、使用生命周期钩子等。",
+    "url": "https://angular.io/guide/component-overview",
+    "tags": ["components", "decorator", "template", "angular"],
+    "summary": "Angular 组件是应用的基本构建单元"
+  },
+  {
+    "id": "angular-services",
+    "title": "Angular 服务",
+    "category": "Angular",
+    "content": "服务是一个广泛的概念，包括应用所需的任何值、函数或特性。服务通常是一个具有明确定义用途的类。Angular 通过依赖注入系统来提供服务。使用 @Injectable 装饰器标记服务类。",
+    "url": "https://angular.io/guide/architecture-services",
+    "tags": ["services", "injectable", "dependency-injection", "angular"],
+    "summary": "Angular 服务提供可重用的业务逻辑和数据"
+  },
+  {
+    "id": "angular-directives",
+    "title": "Angular 指令",
+    "category": "Angular",
+    "content": "指令是带有 @Directive 装饰器的类。有三种指令：组件指令、属性指令和结构指令。属性指令改变元素的外观或行为，结构指令通过添加和移除 DOM 元素来改变 DOM 布局。",
+    "url": "https://angular.io/guide/attribute-directives",
+    "tags": ["directives", "structural", "attribute", "dom", "angular"],
+    "summary": "Angular 指令用于扩展 HTML 元素的功能"
+  },
+  {
+    "id": "angular-rxjs",
+    "title": "Angular 中的 RxJS",
+    "category": "Angular",
+    "content": "RxJS 是 Angular 中处理异步数据的核心库。Observable 是 RxJS 的基础，用于处理异步事件流。Angular 的 HttpClient、表单、路由等都大量使用了 Observable。常用操作符包括 map、filter、switchMap 等。",
+    "url": "https://angular.io/guide/rx-library",
+    "tags": ["rxjs", "observable", "async", "streams", "angular"],
+    "summary": "RxJS 在 Angular 中用于处理异步数据流"
+  },
+  {
+    "id": "javascript-promises",
+    "title": "JavaScript Promises",
+    "category": "JavaScript",
+    "content": "Promise 是 JavaScript 中处理异步操作的对象。Promise 有三种状态：pending（等待中）、fulfilled（已完成）、rejected（已拒绝）。Promise 提供了 then()、catch() 和 finally() 方法来处理异步结果。",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "tags": ["promise", "asynchronous", "then", "catch"],
+    "summary": "Promise 对象用于处理异步操作的最终完成或失败"
+  },
+  {
+    "id": "css-flexbox",
+    "title": "CSS Flexbox 布局",
+    "category": "CSS",
+    "content": "Flexbox 是一种一维布局方法，用于在容器中排列项目。通过设置 display: flex，容器成为 flex 容器，其直接子元素成为 flex 项目。Flexbox 提供了强大的对齐、分布和排序能力。",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout",
+    "tags": ["flexbox", "layout", "alignment", "css"],
+    "summary": "Flexbox 提供灵活的一维布局解决方案"
+  },
+  {
+    "id": "javascript-closures",
+    "title": "JavaScript 闭包",
+    "category": "JavaScript",
+    "content": "闭包是指函数能够访问其外部作用域中的变量，即使在外部函数已经返回之后。闭包让你可以从内部函数访问外部函数的作用域。在 JavaScript 中，每当创建一个函数，闭包就会在函数创建的同时被创建出来。",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures",
+    "tags": ["closures", "scope", "functions", "javascript"],
+    "summary": "JavaScript 闭包允许函数访问外部作用域的变量"
+  },
+  {
+    "id": "javascript-modules",
+    "title": "JavaScript 模块",
+    "category": "JavaScript",
+    "content": "ES6 模块系统使用 import 和 export 语句来导入和导出功能。模块具有自己的作用域，不会污染全局命名空间。可以使用默认导出和命名导出。动态导入 import() 允许按需加载模块。",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+    "tags": ["modules", "import", "export", "es6", "javascript"],
+    "summary": "JavaScript 模块系统用于组织和重用代码"
+  },
+  {
+    "id": "css-animations",
+    "title": "CSS 动画",
+    "category": "CSS",
+    "content": "CSS 动画让元素从一种样式逐渐变化为另一种样式。可以使用 @keyframes 规则定义动画序列，使用 animation 属性应用动画。CSS 动画比 JavaScript 动画性能更好，因为它们可以利用硬件加速。",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations",
+    "tags": ["animations", "keyframes", "transitions", "css"],
+    "summary": "CSS 动画提供高性能的元素动画效果"
+  },
+  {
+    "id": "css-variables",
+    "title": "CSS 自定义属性（变量）",
+    "category": "CSS",
+    "content": "CSS 自定义属性（也称为 CSS 变量）允许你存储特定的值，然后在整个文档中重复使用。使用 -- 前缀定义变量，使用 var() 函数引用变量。CSS 变量具有作用域，支持继承和级联。",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties",
+    "tags": ["variables", "custom-properties", "css", "theming"],
+    "summary": "CSS 自定义属性提供可重用的样式值"
+  },
+  {
+    "id": "typescript-generics",
+    "title": "TypeScript 泛型",
+    "category": "TypeScript",
+    "content": "泛型是 TypeScript 中一个强大的特性，允许你创建可重用的组件。泛型可以用于函数、接口、类和类型别名。通过使用类型参数，泛型让你能够创建适用于多种类型的组件，同时保持类型安全。",
+    "url": "https://www.typescriptlang.org/docs/handbook/2/generics.html",
+    "tags": ["generics", "types", "reusable", "typescript"],
+    "summary": "TypeScript 泛型提供类型安全的可重用组件"
+  },
+  {
+    "id": "html-forms",
+    "title": "HTML 表单",
+    "category": "HTML",
+    "content": "HTML 表单用于收集用户输入。表单包含各种输入元素，如文本字段、复选框、单选按钮、下拉列表等。表单数据可以通过 GET 或 POST 方法提交到服务器。HTML5 引入了新的输入类型和验证属性。",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form",
+    "tags": ["forms", "input", "validation", "html5"],
+    "summary": "HTML 表单用于收集和提交用户输入数据"
+  },
+  {
+    "id": "nodejs-modules",
+    "title": "Node.js 模块系统",
+    "category": "Node.js",
+    "content": "Node.js 使用 CommonJS 模块系统，通过 require() 函数加载模块，通过 module.exports 或 exports 导出模块。Node.js 也支持 ES6 模块语法。模块可以是文件、目录或 npm 包。",
+    "url": "https://nodejs.org/api/modules.html",
+    "tags": ["modules", "require", "exports", "commonjs"],
+    "summary": "Node.js 模块系统用于组织和重用代码"
+  },
+  {
+    "id": "webpack-loaders",
+    "title": "Webpack Loaders",
+    "category": "Webpack",
+    "content": "Webpack loaders 用于转换文件。Loaders 可以将文件从一种语言转换为另一种语言，例如将 TypeScript 转换为 JavaScript，将 Sass 转换为 CSS。常用的 loaders 包括 babel-loader、css-loader、file-loader 等。",
+    "url": "https://webpack.js.org/concepts/loaders/",
+    "tags": ["loaders", "transform", "babel", "css"],
+    "summary": "Webpack loaders 用于转换和处理不同类型的文件"
+  },
+  {
+    "id": "vite-plugins",
+    "title": "Vite 插件系统",
+    "category": "Vite",
+    "content": "Vite 的插件系统基于 Rollup 插件 API，并提供了额外的 Vite 特定选项。插件可以扩展 Vite 的功能，如添加新的文件类型支持、优化构建过程等。Vite 有丰富的官方和社区插件生态。",
+    "url": "https://vitejs.dev/guide/using-plugins.html",
+    "tags": ["plugins", "rollup", "extend", "ecosystem"],
+    "summary": "Vite 插件系统提供可扩展的构建功能"
+  }
+]
