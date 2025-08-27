@@ -17,6 +17,7 @@ export default function Home() {
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [isLoading, setIsLoading] = useState(true);
+  const [isSearching, setIsSearching] = useState(false); // 新增：搜索加载状态
   const [searchQuery, setSearchQuery] = useState("");
   const [searchMode, setSearchMode] = useState<SearchMode>(SearchMode.HYBRID);
   const [searchMetadata, setSearchMetadata] = useState<any>(null);
@@ -64,6 +65,8 @@ export default function Home() {
     }
 
     setSearchQuery(query);
+    setIsSearching(true); // 开始搜索，显示加载状态
+
     try {
       // 使用高级搜索
       const { results, metadata } = await searchEngine.advancedSearch(query, {
@@ -88,13 +91,15 @@ export default function Home() {
       console.error("搜索失败:", error);
       setSearchResults([]);
       setSearchMetadata(null);
+    } finally {
+      setIsSearching(false); // 搜索完成，隐藏加载状态
     }
   };
 
   const handleCategoryChange = async (category: string) => {
     setSelectedCategory(category);
     if (searchQuery && searchEngine) {
-      handleSearch(searchQuery);
+      await handleSearch(searchQuery);
     }
   };
 
@@ -120,45 +125,58 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <header className="text-center mb-8">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <div className="container mx-auto px-4 py-8 flex-1 flex flex-col">
+        {/* 固定头部区域 */}
+        <header className="text-center mb-8 flex-shrink-0">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
             前端技术文档搜索
           </h1>
           <p className="text-gray-600">基于 TensorFlow.js 的智能语义搜索引擎</p>
         </header>
 
-        <div className="max-w-6xl mx-auto">
-          <SearchBox
-            onSearch={handleSearch}
-            suggestions={suggestions}
-            popularSearches={popularSearches}
-            recentSearches={recentSearches}
-            onGetSuggestions={handleGetSuggestions}
-          />
+        <div className="max-w-6xl mx-auto flex-1 flex flex-col">
+          {/* 固定搜索框区域 */}
+          <div className="flex-shrink-0 mb-6">
+            <SearchBox
+              onSearch={handleSearch}
+              suggestions={suggestions}
+              popularSearches={popularSearches}
+              recentSearches={recentSearches}
+              onGetSuggestions={handleGetSuggestions}
+              isSearching={isSearching}
+            />
+          </div>
 
-          <div className="flex flex-col lg:flex-row gap-6">
-            <div className="lg:w-1/4">
-              <CategoryFilter
-                selectedCategory={selectedCategory}
-                onCategoryChange={handleCategoryChange}
-              />
-
-              {searchMetadata && (
-                <SearchStats
-                  metadata={searchMetadata}
-                  documentStats={documentLoader?.getDocumentStats()}
+          {/* 主要内容区域 - 可滚动 */}
+          <div className="flex flex-col lg:flex-row gap-6 flex-1 min-h-0">
+            {/* 左侧边栏 - 固定高度 */}
+            <div className="lg:w-1/4 flex-shrink-0">
+              <div className="sticky top-0 space-y-4">
+                <CategoryFilter
+                  selectedCategory={selectedCategory}
+                  onCategoryChange={handleCategoryChange}
                 />
-              )}
+
+                {searchMetadata && (
+                  <SearchStats
+                    metadata={searchMetadata}
+                    documentStats={documentLoader?.getDocumentStats()}
+                  />
+                )}
+              </div>
             </div>
 
-            <div className="lg:w-3/4">
-              <SearchResults
-                results={searchResults}
-                query={searchQuery}
-                metadata={searchMetadata}
-              />
+            {/* 右侧搜索结果区域 - 独立滚动 */}
+            <div className="lg:w-3/4 flex-1 min-h-0">
+              <div className="h-full">
+                <SearchResults
+                  results={searchResults}
+                  query={searchQuery}
+                  metadata={searchMetadata}
+                  isSearching={isSearching}
+                />
+              </div>
             </div>
           </div>
         </div>

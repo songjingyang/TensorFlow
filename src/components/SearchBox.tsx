@@ -11,6 +11,7 @@ interface SearchBoxProps {
   popularSearches?: { query: string; count: number }[];
   recentSearches?: string[];
   onGetSuggestions?: (query: string) => Promise<string[]>;
+  isSearching?: boolean; // 新增：搜索加载状态
 }
 
 export default function SearchBox({
@@ -20,6 +21,7 @@ export default function SearchBox({
   popularSearches = [],
   recentSearches = [],
   onGetSuggestions,
+  isSearching = false,
 }: SearchBoxProps) {
   const [query, setQuery] = useState("");
   const [dynamicSuggestions, setDynamicSuggestions] = useState<string[]>([]);
@@ -64,21 +66,23 @@ export default function SearchBox({
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
-      if (query.trim()) {
+      if (query.trim() && !isSearching) {
         onSearch(query.trim());
         setShowSuggestions(false);
       }
     },
-    [query, onSearch]
+    [query, onSearch, isSearching]
   );
 
   const handleSuggestionClick = useCallback(
     (suggestion: string) => {
-      setQuery(suggestion);
-      onSearch(suggestion);
-      setShowSuggestions(false);
+      if (!isSearching) {
+        setQuery(suggestion);
+        onSearch(suggestion);
+        setShowSuggestions(false);
+      }
     },
-    [onSearch]
+    [onSearch, isSearching]
   );
 
   const handleClearHistory = useCallback(() => {
@@ -110,9 +114,21 @@ export default function SearchBox({
         </div>
         <button
           type="submit"
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-4 py-1.5 rounded-md hover:bg-blue-700 transition-colors"
+          disabled={isSearching}
+          className={`absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-1.5 rounded-md transition-colors flex items-center gap-2 ${
+            isSearching
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700"
+          } text-white`}
         >
-          搜索
+          {isSearching ? (
+            <>
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+              <span>搜索中</span>
+            </>
+          ) : (
+            "搜索"
+          )}
         </button>
       </form>
 
