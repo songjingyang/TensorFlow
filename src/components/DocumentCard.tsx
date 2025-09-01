@@ -1,10 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { Document } from "@/types";
 import {
   ArrowTopRightOnSquareIcon,
   TagIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  ArrowPathIcon,
 } from "@heroicons/react/24/outline";
+import { ContentFetcher, FetchedContent } from "@/services/contentFetcher";
+import RichTextRenderer from "./RichTextRenderer";
 
 interface DocumentCardProps {
   document: Document;
@@ -21,6 +27,14 @@ export default function DocumentCard({
   query,
   rank,
 }: DocumentCardProps) {
+  // 展开状态管理
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [fetchedContent, setFetchedContent] = useState<FetchedContent | null>(
+    null
+  );
+  const [isFetchingContent, setIsFetchingContent] = useState(false);
+
+  const contentFetcher = ContentFetcher.getInstance();
   // 获取分类颜色
   const getCategoryColor = (category: string) => {
     const colors: { [key: string]: string } = {
@@ -62,6 +76,29 @@ export default function DocumentCard({
     return content.substring(0, maxLength) + "...";
   };
 
+  // 处理展开/收起
+  const handleToggleExpand = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  // 获取最新内容
+  const handleFetchLatestContent = async () => {
+    if (!contentFetcher.canFetchContent(document.url)) {
+      alert("该链接不支持内容获取");
+      return;
+    }
+
+    setIsFetchingContent(true);
+    try {
+      const content = await contentFetcher.fetchContent(document.url);
+      setFetchedContent(content);
+    } catch (error) {
+      console.error("获取内容失败:", error);
+    } finally {
+      setIsFetchingContent(false);
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200">
       <div className="flex items-start justify-between mb-3">
@@ -101,9 +138,101 @@ export default function DocumentCard({
         </a>
       </h3>
 
-      <p className="text-gray-600 mb-4 leading-relaxed">
-        {highlightText(getContentSummary(document.content), query)}
-      </p>
+      {/* 内容显示区域 - 使用富文本渲染器 */}
+      <div className="mb-4">
+        {isExpanded ? (
+          <RichTextRenderer
+            content={document.content}
+            query={query}
+            contentType="markdown"
+            className="max-h-96 overflow-y-auto"
+          />
+        ) : (
+          <p className="text-gray-600 leading-relaxed">
+            {highlightText(getContentSummary(document.content), query)}
+          </p>
+        )}
+      </div>
+
+      {/* 展开/收起按钮 */}
+      <div className="mb-4">
+        <button
+          onClick={handleToggleExpand}
+          className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors text-sm font-medium"
+        >
+          {isExpanded ? (
+            <>
+              <ChevronUpIcon className="h-4 w-4" />
+              收起内容
+            </>
+          ) : (
+            <>
+              <ChevronDownIcon className="h-4 w-4" />
+              展开完整内容
+            </>
+          )}
+        </button>
+      </div>
+
+      {/* 展开状态下的额外功能 */}
+      {isExpanded && (
+        <div className="mb-4 p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-center justify-between mb-3">
+            <h4 className="text-sm font-medium text-gray-700">文档内容</h4>
+            <button
+              onClick={handleFetchLatestContent}
+              disabled={isFetchingContent}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm transition-colors ${
+                isFetchingContent
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-blue-100 text-blue-700 hover:bg-blue-200"
+              }`}
+            >
+              {isFetchingContent ? (
+                <>
+                  <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-blue-600"></div>
+                  获取中...
+                </>
+              ) : (
+                <>
+                  <ArrowPathIcon className="h-3 w-3" />
+                  获取最新内容
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* 显示获取的最新内容 */}
+          {fetchedContent && (
+            <div className="mt-3">
+              {fetchedContent.success ? (
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs text-green-600 font-medium">
+                      ✓ 最新内容已获取
+                    </span>
+                    <span className="text-xs text-gray-500">
+                      更新时间: {fetchedContent.lastUpdated.toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="max-h-96 overflow-y-auto bg-white p-3 rounded border">
+                    <RichTextRenderer
+                      content={fetchedContent.content}
+                      query={query}
+                      contentType="html"
+                      className="text-sm"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="text-xs text-red-600">
+                  ✗ 获取失败: {fetchedContent.error}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* 高亮片段 */}
       {highlights && highlights.length > 0 && (

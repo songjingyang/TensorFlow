@@ -29,12 +29,17 @@
     "dexie": "^4.2.0",
     "dotenv": "^17.2.1",
     "fuse.js": "^7.1.0",
+    "highlight.js": "^11.11.1",
     "next": "15.5.2",
     "node-html-parser": "^7.0.1",
     "openai": "^5.16.0",
     "puppeteer": "^24.17.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1",
     "similarity": "^1.2.1"
   },
   "devDependencies": {

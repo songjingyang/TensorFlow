@@ -16,6 +16,9 @@ interface SearchResultsProps {
     mode: string;
   };
   isSearching?: boolean; // 新增：搜索加载状态
+  onLoadMore?: () => void; // 加载更多回调
+  hasMore?: boolean; // 是否还有更多结果
+  isLoadingMore?: boolean; // 是否正在加载更多
 }
 
 export default function SearchResults({
@@ -23,6 +26,9 @@ export default function SearchResults({
   query,
   metadata,
   isSearching = false,
+  onLoadMore,
+  hasMore = false,
+  isLoadingMore = false,
 }: SearchResultsProps) {
   // 搜索加载状态
   if (isSearching) {
@@ -131,10 +137,25 @@ export default function SearchResults({
         </div>
 
         {/* 加载更多按钮 */}
-        {results.length > 10 && (
+        {hasMore && onLoadMore && (
           <div className="mt-8 text-center pb-4">
-            <button className="text-blue-600 hover:text-blue-800 font-medium transition-colors">
-              加载更多结果
+            <button
+              onClick={onLoadMore}
+              disabled={isLoadingMore}
+              className={`px-6 py-2 rounded-lg font-medium transition-colors ${
+                isLoadingMore
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-blue-600 text-white hover:bg-blue-700"
+              }`}
+            >
+              {isLoadingMore ? (
+                <div className="flex items-center gap-2">
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                  加载中...
+                </div>
+              ) : (
+                "加载更多结果"
+              )}
             </button>
           </div>
         )}
