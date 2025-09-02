@@ -18,7 +18,7 @@
 ### 步骤2：导入项目
 1. 点击 "New Project"
 2. 选择你的GitHub仓库：`songjingyang/TensorFlow`
-3. 选择 `frontend-docs-search` 文件夹作为根目录
+3. 项目根目录就是仓库根目录（不需要选择子文件夹）
 4. Vercel会自动检测到这是一个Next.js项目
 
 ### 步骤3：配置环境变量

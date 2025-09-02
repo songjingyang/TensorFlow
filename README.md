@@ -50,7 +50,7 @@
 
 ```bash
 git clone <your-repo-url>
-cd frontend-docs-search
+cd TensorFlow
 ```
 
 2. 安装依赖
